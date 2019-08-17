@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         //edtValue.setText(mStorage.restoreName());
         btnFormSingup.setOnClickListener(this::onClick);
+        btnConsultar.setOnClickListener(this::onClickList);
     }
 
     private void onClick(View view) {
@@ -37,5 +38,10 @@ public class MainActivity extends AppCompatActivity {
 
         //String value = edtValue.getText().toString();
         //mStorage.salveName(value);
+    }
+
+    private void onClickList(View view){
+        Intent intent = new Intent(this, ClientManagerActivity.class);
+        startActivity(intent);
     }
 }
