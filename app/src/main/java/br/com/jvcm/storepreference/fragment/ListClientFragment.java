@@ -14,7 +14,9 @@ import java.util.List;
 
 import br.com.jvcm.storepreference.R;
 import br.com.jvcm.storepreference.adapter.ClientAdapter;
+import br.com.jvcm.storepreference.manager.ClientComposite;
 import br.com.jvcm.storepreference.manager.ClientsModel;
+import br.com.jvcm.storepreference.manager.StorageAPI;
 
 public class ListClientFragment extends Fragment {
 
@@ -27,6 +29,8 @@ public class ListClientFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private List<ClientsModel> mClientModel = new ArrayList<>();
     private ClientAdapter mClientAdapter;
+    private ClientComposite mComposite;
+    private StorageAPI mStorage;
 
     @Nullable
     @Override
@@ -34,6 +38,9 @@ public class ListClientFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_list, container , true);
 
         mRecyclerView = rootView.findViewById(R.id.recycler_view);
+        mRecyclerView.setAdapter(mClientAdapter);
+        mComposite = new ClientComposite(mStorage);
+        mClientAdapter = new ClientAdapter(mClientModel);
 
         return rootView;
     }

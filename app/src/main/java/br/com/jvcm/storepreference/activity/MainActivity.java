@@ -25,8 +25,6 @@ public class MainActivity extends AppCompatActivity {
 
         btnFormSingup = findViewById(R.id.btn_form_singup);
         btnConsultar = findViewById(R.id.btn_consultar);
-
-        //edtValue.setText(mStorage.restoreName());
         btnFormSingup.setOnClickListener(this::onClick);
         btnConsultar.setOnClickListener(this::onClickList);
     }
@@ -34,10 +32,6 @@ public class MainActivity extends AppCompatActivity {
     private void onClick(View view) {
         Intent intent = new Intent(this, ClientManagerActivity.class);
         startActivity(intent);
-
-
-        //String value = edtValue.getText().toString();
-        //mStorage.salveName(value);
     }
 
     private void onClickList(View view){

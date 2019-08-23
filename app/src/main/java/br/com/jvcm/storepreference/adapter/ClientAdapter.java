@@ -12,12 +12,13 @@ import java.util.List;
 
 import br.com.jvcm.storepreference.R;
 import br.com.jvcm.storepreference.dto.ClientDTO;
+import br.com.jvcm.storepreference.manager.ClientsModel;
 
 public class  ClientAdapter extends RecyclerView.Adapter<ClientAdapter.DataObjectHolder> {
 
     private List<ClientDTO> mDataset;
 
-    public ClientAdapter(List<ClientDTO> dataSet) {
+    public ClientAdapter(List<ClientsModel> dataSet) {
         ;
     }
 
