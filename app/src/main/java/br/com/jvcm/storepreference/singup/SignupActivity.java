@@ -27,7 +27,6 @@ public class SignupActivity extends AppCompatActivity {
 
     public StorageAPI getStorage() {
         return mStorage;
-
     }
 
 }

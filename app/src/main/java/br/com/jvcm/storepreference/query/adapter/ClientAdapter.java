@@ -11,15 +11,23 @@ import android.widget.TextView;
 import java.util.List;
 
 import br.com.jvcm.storepreference.R;
+import br.com.jvcm.storepreference.core.ClientComposite;
 import br.com.jvcm.storepreference.dto.ClientDTO;
 import br.com.jvcm.storepreference.dto.ClientsModel;
 
 public class  ClientAdapter extends RecyclerView.Adapter<ClientAdapter.DataObjectHolder> {
 
-    private List<ClientDTO> mDataset;
+    private List<ClientDTO> mDataSet;
+    private OnItemClickListener mListener;
 
-    public ClientAdapter(List<ClientsModel> dataSet) {
-        ;
+
+    public ClientAdapter(List<ClientDTO> dataSet) {
+        mDataSet = dataSet;
+    }
+
+    public void setOnClickListener(OnItemClickListener listener){
+        mListener = listener;
+
     }
 
     @NonNull
@@ -31,14 +39,22 @@ public class  ClientAdapter extends RecyclerView.Adapter<ClientAdapter.DataObjec
         return objectHolder;
     }
     public void onBindViewHolder(DataObjectHolder holder, int i) {
-        ClientDTO set = mDataset.get(i);
+        ClientDTO set = mDataSet.get(i);
 
         holder.tvClientName.setText(set.getName());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mListener != null) {
+                    mListener.onItemClick(mDataSet.get(i));
+                }
+            }
+        });
 
     }
 
     public int getItemCount() {
-        return mDataset.size();
+        return mDataSet.size();
     }
 
     public class DataObjectHolder extends RecyclerView.ViewHolder {
@@ -52,5 +68,13 @@ public class  ClientAdapter extends RecyclerView.Adapter<ClientAdapter.DataObjec
 
         }
     }
+
+    public interface OnItemClickListener {
+        void onItemClick(ClientDTO item);
+    }
+
+
+
+
 
 }

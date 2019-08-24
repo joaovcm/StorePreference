@@ -27,7 +27,6 @@ public class ClientManagerActivity extends AppCompatActivity {
 
     public StorageAPI getStorage(){
         return mStorage;
-
     }
 
 }
