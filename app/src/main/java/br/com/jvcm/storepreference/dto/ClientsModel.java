@@ -1,4 +1,4 @@
-package br.com.jvcm.storepreference.manager;
+package br.com.jvcm.storepreference.dto;
 
 import java.util.HashMap;
 import java.util.Map;

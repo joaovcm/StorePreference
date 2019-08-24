@@ -1,8 +1,7 @@
-package br.com.jvcm.storepreference.manager;
-
-import java.util.Map;
+package br.com.jvcm.storepreference.core;
 
 import br.com.jvcm.storepreference.dto.ClientDTO;
+import br.com.jvcm.storepreference.dto.ClientsModel;
 
 public interface StorageAPI {
     String EMPTY_STRING = "";

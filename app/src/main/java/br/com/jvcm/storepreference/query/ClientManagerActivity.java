@@ -1,13 +1,11 @@
-package br.com.jvcm.storepreference.activity;
+package br.com.jvcm.storepreference.query;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import br.com.jvcm.storepreference.R;
-import br.com.jvcm.storepreference.fragment.FormSingupFragment;
-import br.com.jvcm.storepreference.fragment.ListClientFragment;
-import br.com.jvcm.storepreference.manager.SharedPreferenceManager;
-import br.com.jvcm.storepreference.manager.StorageAPI;
+import br.com.jvcm.storepreference.core.SharedPreferenceManager;
+import br.com.jvcm.storepreference.core.StorageAPI;
 
 public class ClientManagerActivity extends AppCompatActivity {
 

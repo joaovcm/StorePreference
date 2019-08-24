@@ -1,4 +1,4 @@
-package br.com.jvcm.storepreference.manager;
+package br.com.jvcm.storepreference.core;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -6,9 +6,8 @@ import android.preference.PreferenceManager;
 
 import com.google.gson.Gson;
 
-import java.util.Map;
-
 import br.com.jvcm.storepreference.dto.ClientDTO;
+import br.com.jvcm.storepreference.dto.ClientsModel;
 
 public class SharedPreferenceManager implements StorageAPI {
 

@@ -1,4 +1,4 @@
-package br.com.jvcm.storepreference.manager;
+package br.com.jvcm.storepreference.core;
 
 public enum PreferencesKeys {
     KEY_NAME,

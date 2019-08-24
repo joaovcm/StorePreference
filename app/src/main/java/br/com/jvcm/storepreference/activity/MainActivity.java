@@ -7,9 +7,9 @@ import android.view.View;
 import android.widget.Button;
 
 import br.com.jvcm.storepreference.R;
-import br.com.jvcm.storepreference.fragment.FormSingupFragment;
-import br.com.jvcm.storepreference.manager.SharedPreferenceManager;
-import br.com.jvcm.storepreference.manager.StorageAPI;
+import br.com.jvcm.storepreference.core.StorageAPI;
+import br.com.jvcm.storepreference.query.ClientManagerActivity;
+import br.com.jvcm.storepreference.singup.SignupActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,11 +30,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void onClick(View view) {
-        Intent intent = new Intent(this, ClientManagerActivity.class);
+        Intent intent = new Intent(this, SignupActivity.class);
         startActivity(intent);
     }
 
-    private void onClickList(View view){
+    private void onClickList(View view) {
         Intent intent = new Intent(this, ClientManagerActivity.class);
         startActivity(intent);
     }

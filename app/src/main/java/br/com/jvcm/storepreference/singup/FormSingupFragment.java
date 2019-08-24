@@ -1,4 +1,4 @@
-package br.com.jvcm.storepreference.fragment;
+package br.com.jvcm.storepreference.singup;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -11,10 +11,9 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import br.com.jvcm.storepreference.R;
-import br.com.jvcm.storepreference.activity.ClientManagerActivity;
+import br.com.jvcm.storepreference.core.ClientComposite;
+import br.com.jvcm.storepreference.core.StorageAPI;
 import br.com.jvcm.storepreference.dto.ClientDTO;
-import br.com.jvcm.storepreference.manager.ClientComposite;
-import br.com.jvcm.storepreference.manager.StorageAPI;
 
 public class FormSingupFragment extends Fragment {
     private ClientComposite mComposite;
@@ -42,7 +41,7 @@ public class FormSingupFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_form_singup, null);
 
-        mStorage = ((ClientManagerActivity) getActivity()).getStorage();
+        mStorage = ((SignupActivity) getActivity()).getStorage();
         mComposite = new ClientComposite(mStorage);
         name = rootView.findViewById(R.id.edt_name);
         age = rootView.findViewById(R.id.edt_age);

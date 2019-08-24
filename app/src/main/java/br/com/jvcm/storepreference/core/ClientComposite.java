@@ -1,9 +1,10 @@
-package br.com.jvcm.storepreference.manager;
+package br.com.jvcm.storepreference.core;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import br.com.jvcm.storepreference.dto.ClientDTO;
+import br.com.jvcm.storepreference.dto.ClientsModel;
 
 public class ClientComposite {
     private StorageAPI mStorage;

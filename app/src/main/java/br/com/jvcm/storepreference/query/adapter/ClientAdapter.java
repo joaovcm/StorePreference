@@ -1,4 +1,4 @@
-package br.com.jvcm.storepreference.adapter;
+package br.com.jvcm.storepreference.query.adapter;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -12,7 +12,7 @@ import java.util.List;
 
 import br.com.jvcm.storepreference.R;
 import br.com.jvcm.storepreference.dto.ClientDTO;
-import br.com.jvcm.storepreference.manager.ClientsModel;
+import br.com.jvcm.storepreference.dto.ClientsModel;
 
 public class  ClientAdapter extends RecyclerView.Adapter<ClientAdapter.DataObjectHolder> {
 

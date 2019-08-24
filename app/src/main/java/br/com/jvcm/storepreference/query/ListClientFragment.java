@@ -1,4 +1,4 @@
-package br.com.jvcm.storepreference.fragment;
+package br.com.jvcm.storepreference.query;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -13,10 +13,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.jvcm.storepreference.R;
-import br.com.jvcm.storepreference.adapter.ClientAdapter;
-import br.com.jvcm.storepreference.manager.ClientComposite;
-import br.com.jvcm.storepreference.manager.ClientsModel;
-import br.com.jvcm.storepreference.manager.StorageAPI;
+import br.com.jvcm.storepreference.query.adapter.ClientAdapter;
+import br.com.jvcm.storepreference.core.ClientComposite;
+import br.com.jvcm.storepreference.dto.ClientsModel;
+import br.com.jvcm.storepreference.core.StorageAPI;
 
 public class ListClientFragment extends Fragment {
 
