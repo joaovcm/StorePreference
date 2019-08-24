@@ -8,7 +8,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +49,10 @@ public class ListClientFragment extends Fragment {
         return rootView;
     }
 
-    public ClientAdapter.OnItemClickListener onClickItem(){
-        return item -> Toast.makeText(getContext(), item.getName(), Toast.LENGTH_SHORT).show();
+    public ClientAdapter.OnItemClickListener onClickItem() {
+        return item -> getFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container, EditClientFragment.newInstance(item))
+                .commit();
     }
 }
