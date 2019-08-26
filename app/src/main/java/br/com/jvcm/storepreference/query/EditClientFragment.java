@@ -9,9 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-
 import com.google.gson.Gson;
-
 import br.com.jvcm.storepreference.R;
 import br.com.jvcm.storepreference.core.ClientComposite;
 import br.com.jvcm.storepreference.dto.ClientDTO;
@@ -56,6 +54,12 @@ public class EditClientFragment extends Fragment {
     }
 
     private void populateForm() {
+        Name.setText(clientDTO.getName());
+        Age.setText(clientDTO.getAge());
+        BornDate.setText(clientDTO.getBornData());
+        Adress.setText(clientDTO.getAddress());
+        UnitFederation.setText(clientDTO.getFederationUnit());
+        City.setText(clientDTO.getCity());
 
     }
 

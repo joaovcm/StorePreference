@@ -53,6 +53,6 @@ public class ListClientFragment extends Fragment {
         return item -> getFragmentManager()
                 .beginTransaction()
                 .replace(R.id.fragment_container, EditClientFragment.newInstance(item))
-                .commit();
+                .commit();       
     }
 }
