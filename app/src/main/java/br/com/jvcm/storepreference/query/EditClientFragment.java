@@ -24,7 +24,7 @@ public class EditClientFragment extends Fragment {
         Bundle bundle = new Bundle();
         bundle.putString(KEY_BUNDLE, new Gson().toJson(item));
         EditClientFragment fragment = new EditClientFragment();
-        fragment.getArguments().putAll(bundle);
+        fragment.setArguments(bundle);
         return fragment;
     }
 
@@ -56,6 +56,7 @@ public class EditClientFragment extends Fragment {
     }
 
     private void populateForm() {
+        Name.;
 
     }
 

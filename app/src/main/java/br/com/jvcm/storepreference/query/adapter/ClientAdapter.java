@@ -7,15 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-
 import java.util.List;
 
 import br.com.jvcm.storepreference.R;
-import br.com.jvcm.storepreference.core.ClientComposite;
 import br.com.jvcm.storepreference.dto.ClientDTO;
-import br.com.jvcm.storepreference.dto.ClientsModel;
 
-public class  ClientAdapter extends RecyclerView.Adapter<ClientAdapter.DataObjectHolder> {
+public class ClientAdapter extends RecyclerView.Adapter<ClientAdapter.DataObjectHolder> {
 
     private List<ClientDTO> mDataSet;
     private OnItemClickListener mListener;
@@ -25,9 +22,8 @@ public class  ClientAdapter extends RecyclerView.Adapter<ClientAdapter.DataObjec
         mDataSet = dataSet;
     }
 
-    public void setOnClickListener(OnItemClickListener listener){
+    public void setOnClickListener(OnItemClickListener listener) {
         mListener = listener;
-
     }
 
     @NonNull
@@ -38,16 +34,14 @@ public class  ClientAdapter extends RecyclerView.Adapter<ClientAdapter.DataObjec
         DataObjectHolder objectHolder = new DataObjectHolder(cellView);
         return objectHolder;
     }
+
     public void onBindViewHolder(DataObjectHolder holder, int i) {
         ClientDTO set = mDataSet.get(i);
 
         holder.tvClientName.setText(set.getName());
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mListener != null) {
-                    mListener.onItemClick(mDataSet.get(i));
-                }
+        holder.container.setOnClickListener(v -> {
+            if (mListener != null) {
+                mListener.onItemClick(set);
             }
         });
 
@@ -58,12 +52,13 @@ public class  ClientAdapter extends RecyclerView.Adapter<ClientAdapter.DataObjec
     }
 
     public class DataObjectHolder extends RecyclerView.ViewHolder {
+        View container;
         TextView tvClientName;
 
 
         public DataObjectHolder(@NonNull View itemView) {
             super(itemView);
-
+            container = itemView.findViewById(R.id.container_list);
             tvClientName = itemView.findViewById(R.id.tv_name_client);
 
         }
@@ -72,9 +67,6 @@ public class  ClientAdapter extends RecyclerView.Adapter<ClientAdapter.DataObjec
     public interface OnItemClickListener {
         void onItemClick(ClientDTO item);
     }
-
-
-
 
 
 }
