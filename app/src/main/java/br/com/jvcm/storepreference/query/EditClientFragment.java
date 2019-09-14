@@ -56,7 +56,12 @@ public class EditClientFragment extends Fragment {
     }
 
     private void populateForm() {
-        Name.;
+        Name.setText(clientDTO.getName());
+        Age.setText(clientDTO.getAge());
+        BornDate.setText(clientDTO.getBornData());
+        Adress.setText(clientDTO.getAddress());
+        UnitFederation.setText(clientDTO.getFederationUnit());
+        City.setText(clientDTO.getCity());
 
     }
 
