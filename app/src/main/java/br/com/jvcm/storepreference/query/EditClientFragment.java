@@ -14,6 +14,8 @@ import com.google.gson.Gson;
 
 import br.com.jvcm.storepreference.R;
 import br.com.jvcm.storepreference.core.ClientComposite;
+import br.com.jvcm.storepreference.core.SharedPreferenceManager;
+import br.com.jvcm.storepreference.core.StorageAPI;
 import br.com.jvcm.storepreference.dto.ClientDTO;
 
 public class EditClientFragment extends Fragment {
@@ -37,36 +39,56 @@ public class EditClientFragment extends Fragment {
     private EditText Adress;
     private EditText UnitFederation;
     private EditText City;
-    private Button EditClient;
+    private Button btnEditClient;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = (inflater.inflate(R.layout.fragment_edit_client, null));
         clientDTO = new Gson().fromJson(getArguments().getString(KEY_BUNDLE), ClientDTO.class);
+        //todo nome de objetos devem common case
         Name = rootView.findViewById(R.id.edt_edit_name);
         Age = rootView.findViewById(R.id.edt_edit_age);
         BornDate = rootView.findViewById(R.id.edt_edit_adressborn_date);
         Adress = rootView.findViewById(R.id.edt_edit_adress);
         UnitFederation = rootView.findViewById(R.id.edt_edit_utf);
         City = rootView.findViewById(R.id.edt_edit_city);
-        EditClient = rootView.findViewById(R.id.btn_edit);
+        btnEditClient = rootView.findViewById(R.id.btn_edit);
+        mComposite = new ClientComposite( new SharedPreferenceManager(getContext()));
+
+        btnEditClient.setOnClickListener(this::onEditClick);
+
 
         return rootView;
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        populateForm();
+    }
+
     private void populateForm() {
         Name.setText(clientDTO.getName());
-        Age.setText(clientDTO.getAge());
+        Age.setText(String.valueOf(clientDTO.getAge()));
         BornDate.setText(clientDTO.getBornData());
         Adress.setText(clientDTO.getAddress());
         UnitFederation.setText(clientDTO.getFederationUnit());
         City.setText(clientDTO.getCity());
+    }
+
+    public void  onEditClick(View view) {
+        ClientDTO clientEdit = new ClientDTO();
+        clientEdit.setId(clientDTO.getId());
+        clientEdit.setName(Name.getText().toString());
+        clientEdit.setBornData(BornDate.getText().toString());
+        clientEdit.setFederationUnit(UnitFederation.getText().toString());
+        clientEdit.setCity(City.getText().toString());
+        mComposite.editClient(clientDTO.getId(), clientEdit);
+        //todo fazer desempilhamento de fragment
 
     }
 
-    public void onEditClick() {
-        mComposite.editClient(clientDTO.getId(), clientDTO);
-    }
+
 
 }
