@@ -9,7 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+
 import com.google.gson.Gson;
+
 import br.com.jvcm.storepreference.R;
 import br.com.jvcm.storepreference.core.ClientComposite;
 import br.com.jvcm.storepreference.dto.ClientDTO;
@@ -41,6 +43,7 @@ public class EditClientFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = (inflater.inflate(R.layout.fragment_edit_client, null));
+
         clientDTO = new Gson().fromJson(getArguments().getString(KEY_BUNDLE), ClientDTO.class);
         Name = rootView.findViewById(R.id.edt_edit_name);
         Age = rootView.findViewById(R.id.edt_edit_age);
@@ -49,6 +52,7 @@ public class EditClientFragment extends Fragment {
         UnitFederation = rootView.findViewById(R.id.edt_edit_utf);
         City = rootView.findViewById(R.id.edt_edit_city);
         EditClient = rootView.findViewById(R.id.btn_edit);
+        //EditClient.setOnClickListener(this::onEditClick);
 
         return rootView;
     }
@@ -60,6 +64,7 @@ public class EditClientFragment extends Fragment {
         Adress.setText(clientDTO.getAddress());
         UnitFederation.setText(clientDTO.getFederationUnit());
         City.setText(clientDTO.getCity());
+
 
     }
 
