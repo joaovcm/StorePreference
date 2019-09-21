@@ -89,7 +89,10 @@ public class EditClientFragment extends Fragment {
         clientEdit.setAge(Integer.parseInt(Age.getText().toString()));
         clientEdit.setAddress(Adress.getText().toString());
         mComposite.editClient(clientDTO.getId(), clientEdit);
-        getFragmentManager().beginTransaction().add(R.id.fragment_container, new ListClientFragment());
+        getFragmentManager().
+                beginTransaction().
+                replace(R.id.fragment_container, new ListClientFragment()).
+                commit();
 
     }
 
