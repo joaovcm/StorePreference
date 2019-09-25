@@ -82,8 +82,7 @@ public class EditClientFragment extends Fragment {
     public void  onEditClick(View view) {
         ClientDTO clientEdit = new ClientDTO();
         clientEdit.setId(clientDTO.getId());
-        clientEdit.setName(Name.getText().toString());
-        clientEdit.setBornData(BornDate.getText().toString());
+        clientEdit.setName(Name.getText().toString());clientEdit.setBornData(BornDate.getText().toString());
         clientEdit.setFederationUnit(UnitFederation.getText().toString());
         clientEdit.setCity(City.getText().toString());
         clientEdit.setAge(Integer.parseInt(Age.getText().toString()));
